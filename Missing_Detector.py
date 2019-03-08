@@ -18,7 +18,7 @@ def filecheck(feedloc, outloc, targloc):
 
 def flength(feedloc):
     with open(feedloc, 'r') as feed:
-        length = int(feed.readlines())
+        length = feed.readlines()
     return length
 
 
@@ -93,7 +93,7 @@ def target(feedloc, targloc, feedlen, lpath):
         for line in feed:
             current += 1
             line = line.rstrip('\n')
-            logging(lpath, 'Checking %d/%d: %s' % (feedlen, current, line))
+            logging(lpath, 'Checking %s/%d: %s' % (feedlen, current, line))
             file = os.path.join(targloc, line)
             if os.path.isfile(file):
                 logging(lpath, '%s exists')
@@ -107,7 +107,7 @@ def target(feedloc, targloc, feedlen, lpath):
 def filecheck(feedloc, outloc, targloc):
     lpath = mklog(outloc)
     feedlen = flength(feedloc)
-    logging(lpath, 'Feed has %d entries. \n' % feedlen)
+    logging(lpath, 'Feed has %s entries. \n' % feedlen)
     fnd, nfnd = target(feedloc, targloc, feedlen, lpath)
     logging(lpath, 'Feed Complete')
     logging(lpath, 'Found %d Files' % fnd)
