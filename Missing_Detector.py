@@ -2,6 +2,7 @@ import getopt
 import os
 import time
 import sys
+import pathlib
 
 
 def filecheck(feedloc, outloc, targloc):
@@ -32,10 +33,12 @@ def mklog(outloc):
     else:
         return logpath
 
+
 def badinput():
     print('-f for feed file location \n -t for target folder \n -o for output location \n --help \n --feed \n '
           '--target \n --output \n \n')
     exit()
+
 
 def opt_parse():
     try:
@@ -54,6 +57,7 @@ def opt_parse():
         else:
             badinput()
     checklocations(feedloc, targloc, outloc)
+
 
 def checklocations(feedloc, targloc, outloc):
     if os.path.isdir(targloc):
@@ -94,7 +98,13 @@ def target(feedloc, targloc, feedlen, lpath):
             current += 1
             line = line.rstrip('\n')
             logging(lpath, 'Checking %s/%d: %s' % (feedlen, current, line))
-            print(os.path.join(targloc, line))
+            file = pathlib.Path(targloc).joinpath(line)
+            if os.path.isfile(file):
+                logging(lpath, '%s exists \n' % line)
+                found += 1
+            else:
+                logging(lpath, '%s NOT FOUND \n' % line)
+                ntfound += 1
     return found, ntfound
 
 
