@@ -1,7 +1,7 @@
 import getopt
 import os
 import time
-
+import sys
 
 def filecheck(feedloc, outloc, targloc):
     lpath = mklog(outloc)
@@ -32,9 +32,8 @@ def mklog(outloc):
 
 
 def opt_parse():
-    args = ['-h', '-f', '-t', '-o', '--help', '--feed', '--target', '--output']
     try:
-        option, argument = getopt.getopt(args, 'hf:t:o:', ['--help', '--feed', '--target', '--output'])
+        option, argument = getopt.getopt(sys.argv[1:], 'hf:t:o:', ['--help', '--feed', '--target', '--output'])
         print(opts)
         if option == '-h':
             print('-f for feed file location \n -t for target folder \n -o for output location \n --help \n --feed'
