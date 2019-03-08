@@ -4,7 +4,7 @@ import time
 import sys
 
 
-def opt_parse(arglst):
+def opt_parse():
     try:
         opts, args = getopt.getopt(sys.argv[1:], 'hf:t:o:', ['--help', '--feed', '--target', '--output'])
         print(opts)
@@ -98,4 +98,4 @@ def filecheck(feedloc, outloc, targloc):
     exit()
 
 
-opt_parse(arglst)
+opt_parse()
