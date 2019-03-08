@@ -1,6 +1,9 @@
 import getopt
 import os
 import time
+import sys
+
+arglst = sys.argv[1:]
 
 
 def opt_parse(arglst):
