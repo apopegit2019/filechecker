@@ -2,7 +2,6 @@ import getopt
 import os
 import time
 import sys
-import string
 
 
 def filecheck(feedloc, outloc, targloc):
@@ -93,7 +92,7 @@ def target(feedloc, targloc, feedlen, lpath):
     with open(feedloc, 'r') as feed:
         for line in feed:
             current += 1
-            line = filter(lambda x: x in string.printable, line)
+            line = line.rstrip('\n')
             logging(lpath, 'Checking %s/%d: %s' % (feedlen, current, line))
             file = os.path.join(targloc, line)
             if os.path.isfile(file):
