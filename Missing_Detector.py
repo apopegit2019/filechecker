@@ -32,6 +32,7 @@ def mklog(outloc):
 
 
 def opt_parse():
+    args = ['-h', '-f', '-t', '-o', '--help', '--feed', '--target', '--output']
     try:
         option, argument = getopt.getopt(args, 'hf:t:o:', ['--help', '--feed', '--target', '--output'])
         print(opts)
