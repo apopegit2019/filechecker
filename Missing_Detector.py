@@ -98,7 +98,9 @@ def target(feedloc, targloc, feedlen, lpath):
             current += 1
             line = line.rstrip('\n')
             logging(lpath, 'Checking %s/%d: %s' % (feedlen, current, line))
-            file = pathlib.Path(targloc).joinpath(line)
+            targ = pathlib.Path(targloc)
+            fline = pathlib.Path(line)
+            file = pathlib.Path(targ).joinpath(fline)
             if file.is_file():
                 logging(lpath, '%s exists \n' % line)
                 found += 1
