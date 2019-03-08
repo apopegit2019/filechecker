@@ -91,10 +91,11 @@ def target(feedloc, targloc, feedlen, lpath):
     ntfound = 0
     with open(feedloc, 'r') as feed:
         for line in feed:
-            print(line)
             current += 1
-            logging(lpath, 'Checking %s/%d: %s' % (feedlen, current, line1))
+            line = line.rstrip('\n')
+            logging(lpath, 'Checking %s/%d: %s' % (feedlen, current, line))
             file = os.path.join(targloc, line)
+            print(file)
             if os.path.isfile(file):
                 logging(lpath, '%s exists \n' % line)
                 found += 1
