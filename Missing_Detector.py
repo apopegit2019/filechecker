@@ -80,7 +80,7 @@ def checklocations(feedloc, targloc, outloc):
 
 
 def logging(logfile, lmsg):
-    msg = time.ctime() + ' :  %s \n' % lmsg
+    msg = time.ctime() + ' :  %s \n \n' % lmsg
     with open(logfile, 'a+') as log:
         log.write(msg)
 
@@ -96,7 +96,7 @@ def target(feedloc, targloc, feedlen, lpath):
             logging(lpath, 'Checking %s/%d: %s' % (feedlen, current, line))
             file = os.path.join(targloc, line)
             if os.path.isfile(file):
-                logging(lpath, '%s exists')
+                logging(lpath, '%s exists' % line)
                 found += 1
             else:
                 logging(lpath, '%s NOT FOUND' % line)
