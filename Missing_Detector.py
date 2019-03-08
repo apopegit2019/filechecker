@@ -3,12 +3,12 @@ import os
 import time
 import sys
 
-arglst = sys.argv[1:]
-
 
 def opt_parse(arglst):
     try:
-        opts, args = getopt.getopt(arglst, 'hf:t:o:', ['--help', '--feed', '--target', '--output'])
+        opts, args = getopt.getopt(sys.argv[1:], 'hf:t:o:', ['--help', '--feed', '--target', '--output'])
+        print(opts)
+        print(args)
     except getopt.GetoptError:
         print('-f for feed file location \n -t for target folder \n -o for output location \n --help \n --feed \n '
               '--target \n --output \n \n')
