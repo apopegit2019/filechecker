@@ -95,12 +95,6 @@ def target(feedloc, targloc, feedlen, lpath):
             line = line.rstrip('\n')
             logging(lpath, 'Checking %s/%d: %s' % (feedlen, current, line))
             print(os.path.join(targloc, line))
-            if os.path.isfile(file):
-                logging(lpath, '%s exists \n' % line)
-                found += 1
-            else:
-                logging(lpath, '%s NOT FOUND \n' % line)
-                ntfound += 1
     return found, ntfound
 
 
