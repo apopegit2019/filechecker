@@ -92,7 +92,7 @@ def target(feedloc, targloc, feedlen, lpath):
     with open(feedloc, 'r') as feed:
         for line in feed:
             current += 1
-            line = line.strip("\n")
+            line = line.rstrip('\r\n')
             logging(lpath, 'Checking %s/%d: %s' % (feedlen, current, line))
             file = os.path.join(targloc, line)
             if os.path.isfile(file):
