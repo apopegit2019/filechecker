@@ -34,7 +34,6 @@ def mklog(outloc):
 def opt_parse():
     try:
         option, argument = getopt.getopt(sys.argv[1:], 'hf:t:o:', ['--help', '--feed', '--target', '--output'])
-        print(opts)
         if option == '-h':
             print('-f for feed file location \n -t for target folder \n -o for output location \n --help \n --feed'
                  ' \n  --target \n --output \n \n')
