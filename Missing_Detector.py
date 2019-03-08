@@ -1,12 +1,11 @@
 import getopt
 import os
 import time
-import sys
 
 
 def opt_parse():
     try:
-        opts = getopt.getopt(sys.argv[1:], 'hf:t:o:', ['--help', '--feed', '--target', '--output'])
+        opts = getopt.getopt(args, 'hf:t:o:', ['--help', '--feed', '--target', '--output'])
         print(opts)
         for option, argument in opts:
             if option == '-h':
