@@ -18,7 +18,7 @@ def filecheck(feedloc, outloc, targloc):
 
 def flength(feedloc):
     with open(feedloc, 'r') as feed:
-        int(length) = feed.readlines()
+        length = int(feed.readlines())
     return length
 
 
