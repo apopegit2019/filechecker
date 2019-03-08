@@ -90,7 +90,7 @@ def target(feedloc, targloc, feedlen, lpath):
     found = 0
     ntfound = 0
     with open(feedloc, 'r') as feed:
-        for line in feed.readlines():
+        for line in feed:
             current += 1
             line = line.rstrip('\r\n')
             logging(lpath, 'Checking %s/%d: %s' % (feedlen, current, line))
