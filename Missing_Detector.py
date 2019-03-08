@@ -40,24 +40,20 @@ def badinput():
 def opt_parse():
     try:
         option, argument = getopt.getopt(sys.argv[1:], 'hf:t:o:', ['--help', '--feed', '--target', '--output'])
-        if option == '-h':
-           badinput()
-        else:
-            if option in ('-f', '--feed'):
-                feedloc = argument
-            else:
-                badinput()
-            if option in ('-o', '--output'):
-                outloc = argument
-            else:
-                badinput()
-            if option in ('-t', '--target'):
-                targloc = argument
-            else:
-                badinput()
-            checklocations(feedloc, targloc, outloc)
     except getopt.GetoptError:
         badinput()
+    for opt, arg in option:
+        if opt in ('-h', '--help'):
+            badinput()
+        elif opt in ('-f', '--feed'):
+            feedloc = arg
+        elif opt in ('-t', '--target'):
+            targloc = arg
+        elif opt in ('-o', '--output'):
+            outloc = arg
+        else:
+            badinput()
+    checklocations(feedloc, targloc, outloc)
 
 def checklocations(feedloc, targloc, outloc):
     if os.path.isdir(targloc):
