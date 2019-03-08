@@ -47,10 +47,10 @@ def opt_parse():
         if os.path.isdir(targloc):
             print('The target folder to be searched: %s \n' % targloc)
         else:
-             print('Target Directory Does Not Exist.')
+            print('Target Directory Does Not Exist.')
             exit()
-         if os.path.isdir(outloc):
-             print('Output will be saved to %s \n' % outloc)
+        if os.path.isdir(outloc):
+            print('Output will be saved to %s \n' % outloc)
         else:
             print('Target Directory Does Not Exist.')
             exit()
@@ -58,7 +58,7 @@ def opt_parse():
             print('Feed file location is: %s \n' % feedloc)
         else:
             print('Target Directory Does Not Exist.')
-             exit()
+            exit()
         uanswer = input('Are these correct and are you ready to proceed? (Y/N) \n')
         if uanswer in ('y', 'Y', 'Yes', 'YES'):
              filecheck(feedloc, outloc, targloc)
