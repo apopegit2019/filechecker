@@ -2,7 +2,7 @@ import getopt
 import os
 import time
 import sys
-import pathlib
+import os
 
 
 def filecheck(feedloc, outloc, targloc):
@@ -98,10 +98,8 @@ def target(feedloc, targloc, feedlen, lpath):
             current += 1
             line = line.rstrip('\n')
             logging(lpath, 'Checking %s/%d: %s' % (feedlen, current, line))
-            targ = pathlib.Path(targloc)
-            fline = pathlib.Path(line)
-            file = pathlib.Path(targ).joinpath(fline)
-            if file.is_file():
+            file = os.path.join(targloc, line)
+            if os.path.isfile(file):
                 logging(lpath, '%s exists \n' % line)
                 found += 1
             else:
